@@ -34,5 +34,5 @@
     </div>
   </article>
 
-  <Modal v-if="showModal" :close="handleModal" />
+  <FieldModal v-if="showModal" :close="handleModal" />
 </template>
