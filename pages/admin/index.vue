@@ -30,7 +30,7 @@
 
 <template>
   <Head>
-    <title>ME | Login</title>
+    <title>MiniEcommerce | Login</title>
   </Head>
 
   <main class="w-full h-screen bg-gray-100 flex justify-center content-center">
