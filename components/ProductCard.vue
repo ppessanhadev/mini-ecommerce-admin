@@ -1,3 +1,11 @@
+<script setup lang="ts">
+  const showModal = ref(false);
+
+  function handleModal() {
+    showModal.value = !showModal.value;
+  }
+</script>
+
 <template>
   <article class="flex flex bg-stone-200 border border-zinc-300 w-auto">
     <figure>
@@ -17,7 +25,7 @@
     </div>
 
     <div class="flex flex-col justify-center sm:flex-row sm:self-center ml-auto mr-4 gap-2">
-      <button class="w-10 h-10 bg-yellow-500 hover:bg-yellow-600 border-2 border-yellow-600 text-gray-200 hover:text-gray-300">
+      <button class="w-10 h-10 bg-yellow-500 hover:bg-yellow-600 border-2 border-yellow-600 text-gray-200 hover:text-gray-300" @click="handleModal">
         <SVGPencil class="m-auto" />
       </button>
       <button class="w-10 h-10 bg-red-500 hover:bg-red-600 border-2 border-red-600 text-gray-200 hover:text-gray-300">
@@ -25,4 +33,6 @@
       </button>
     </div>
   </article>
+
+  <Modal v-if="showModal" :close="handleModal" />
 </template>
