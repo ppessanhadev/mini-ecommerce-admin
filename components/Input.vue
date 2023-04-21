@@ -2,7 +2,7 @@
   const props = defineProps<{
     id: string;
     label: string;
-    type: 'text' | 'password';
+    type: 'text' | 'password' | 'number';
     modelValue: string;
     class?: string;
     placeholder?: string;
