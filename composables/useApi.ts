@@ -1,4 +1,3 @@
-
 type UseFetchType = typeof useFetch
 
 export const useApi: UseFetchType = (path, options = {}) => {
