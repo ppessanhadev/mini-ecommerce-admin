@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  import { LoginFailedResponse, LoginSuccessResponse } from '~/types';
+  useHead({ title: 'MiniEcommerce | Login' });
+
   const fields = ref({ username: '', password: '' });
   const loading = ref(false);
   const errorMessage = ref('');
@@ -9,18 +12,14 @@
     }
 
     loading.value = true;
-    const { data, error } = await useApi<{ token: string }, { data: { message: string } }>('/api/v1/user', {
+    const { data, error } = await useApi<LoginSuccessResponse, LoginFailedResponse>('/api/v1/user', {
       method: 'POST' as 'GET',
-      body: { ...fields.value }
+      body: { ...fields.value },
     });
     loading.value = false;
 
-    if (error.value?.data.message === 'User not found.') {
-      return errorMessage.value = 'Usuário não encontrado';
-    } else if (error.value?.data.message === 'Wrong password.'){
-      return errorMessage.value = 'Senha incorreta';
-    } else if (error.value) {
-      return errorMessage.value = 'Erro na API, tentar novamente.';
+    if (error.value) {
+      return errorMessage.value = errorTreat(error.value?.data.message);
     }
 
     localStorage.setItem('token', data.value?.token || '');
@@ -29,10 +28,6 @@
 </script>
 
 <template>
-  <Head>
-    <title>MiniEcommerce | Login</title>
-  </Head>
-
   <main class="w-full h-screen flex justify-center content-center">
     <form class="justify-center m-auto bg-white rounded-lg p-4 w-96 border shadow-md">
       <p v-if="errorMessage" class="bg-red-500 text-white text-md text-center rounded p-3 border-2 border-red-600 mb-4">
