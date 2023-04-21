@@ -33,7 +33,7 @@
     <title>MiniEcommerce | Login</title>
   </Head>
 
-  <main class="w-full h-screen bg-gray-100 flex justify-center content-center">
+  <main class="w-full h-screen flex justify-center content-center">
     <form class="justify-center m-auto bg-white rounded-lg p-4 w-96 border shadow-md">
       <p v-if="errorMessage" class="bg-red-500 text-white text-md text-center rounded p-3 border-2 border-red-600 mb-4">
         {{ errorMessage }}
