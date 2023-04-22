@@ -13,6 +13,8 @@
       return error.value = 'Os campos "Nome", "Valor" e "Qtd" são obrigatorios';
     }
 
+    props.close();
+
     await useApi('/api/v1/product', {
       method: props.product ? 'PATCH' : 'POST',
       params: props.product ? { id: props.product?.id } : {},
@@ -26,7 +28,7 @@
         authorization: `Bearer ${token}`
       }
     });
-    props.close();
+
     props.invalidate();
   }
 
