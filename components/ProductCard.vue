@@ -2,11 +2,11 @@
   import { Product } from '~/types';
 
   defineProps<{ product: Product }>();
-  const showModal = ref(false);
 
-  function handleModal() {
-    showModal.value = !showModal.value;
-  }
+  const modals = ref({ edit: false, delete: false });
+  const handleModal = (kind: 'edit' | 'delete') => {
+    modals.value[kind] = !modals.value[kind];
+  };
 </script>
 
 <template>
@@ -28,14 +28,21 @@
     </div>
 
     <div class="flex flex-col justify-center sm:flex-row sm:self-center ml-auto mr-4 gap-2">
-      <button class="w-10 h-10 bg-yellow-500 hover:bg-yellow-600 border-2 border-yellow-600 text-gray-200 hover:text-gray-300" @click="handleModal">
+      <button
+        class="w-10 h-10 bg-yellow-500 hover:bg-yellow-600 border-2 border-yellow-600 text-gray-200 hover:text-gray-300"
+        @click="() => handleModal('edit')"
+      >
         <SVGPencil class="m-auto" />
       </button>
-      <button class="w-10 h-10 bg-red-500 hover:bg-red-600 border-2 border-red-600 text-gray-200 hover:text-gray-300">
+      <button
+        class="w-10 h-10 bg-red-500 hover:bg-red-600 border-2 border-red-600 text-gray-200 hover:text-gray-300"
+        @click="() => handleModal('delete')"
+      >
         <SVGTrash class="m-auto" />
       </button>
     </div>
   </article>
 
-  <FieldModal v-if="showModal" :close="handleModal" :product="product" />
+  <FieldModal v-if="modals.edit" :close="() => handleModal('edit')" :product="product" />
+  <DeleteModal v-if="modals.delete" :close="() => handleModal('delete')" :name="product.name" />
 </template>
