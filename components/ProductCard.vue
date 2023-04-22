@@ -17,7 +17,6 @@
         :src="product.image"
         @error="($event.target as HTMLImageElement).src = '/no-image.jpg'"
       >
-      <!-- <div class="w-24 h-24 bg-red-500 rounded-full m-2" /> -->
     </figure>
 
     <div class="flex flex-col justify-center">
@@ -25,7 +24,7 @@
         {{ product.name }}
       </h2>
       <h4 class="text-zinc-500">
-        <b>Valor:</b> {{ useCurrencyFormatter(product.price) }}
+        <b>Valor:</b> {{ formatCurrency(product.price) }}
       </h4>
       <h4 class="text-zinc-500">
         <b>Estoque:</b> {{ product.stock }}
