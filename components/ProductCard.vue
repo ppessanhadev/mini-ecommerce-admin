@@ -12,7 +12,12 @@
 <template>
   <article class="flex flex bg-stone-200 border border-zinc-300 w-auto">
     <figure>
-      <div class="w-24 h-24 bg-red-500 rounded-full m-2" />
+      <img
+        class="w-24 h-24 rounded-full m-2"
+        :src="product.image"
+        @error="($event.target as HTMLImageElement).src = '/no-image.jpg'"
+      >
+      <!-- <div class="w-24 h-24 bg-red-500 rounded-full m-2" /> -->
     </figure>
 
     <div class="flex flex-col justify-center">
