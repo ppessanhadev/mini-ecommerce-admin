@@ -29,7 +29,7 @@ Com intuíto de deixar a parte de administração o mais simples possível, esse
 
 #### Como rodar o projeto
 
-A partir da raiz do projeto em seu terminal, siga os próximos passos para rodar a API localmente:
+A partir da raiz do projeto em seu terminal, siga os próximos passos para rodar localmente:
 
 **Rodando localmente com pnpm**
 
