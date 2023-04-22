@@ -10,8 +10,16 @@
 
   onMounted(async () => {
     const token = localStorage.getItem('token');
+    if (!token) return navigateTo('/admin');
 
-    if (!token) {
+    const { error } = await useApi('/api/v1/user/check-token', {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
+
+    if (error.value) {
+      localStorage.removeItem('token');
       return navigateTo('/admin');
     }
     auth.value = true;
