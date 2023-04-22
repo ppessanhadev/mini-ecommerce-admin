@@ -15,7 +15,7 @@
 
     await useApi('/api/v1/product', {
       method: props.product ? 'PATCH' : 'POST',
-      params: { id: props.product?.id || null },
+      params: props.product ? { id: props.product?.id } : {},
       body: {
         name: fields.value.name,
         price: Number(fields.value.price),
