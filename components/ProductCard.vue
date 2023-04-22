@@ -44,5 +44,5 @@
   </article>
 
   <FieldModal v-if="modals.edit" :close="() => handleModal('edit')" :invalidate="invalidate" :product="product" />
-  <DeleteModal v-if="modals.delete" :close="() => handleModal('delete')" :invalidate="invalidate" :name="product.name" />
+  <DeleteModal v-if="modals.delete" :close="() => handleModal('delete')" :invalidate="invalidate" :product="product" />
 </template>
