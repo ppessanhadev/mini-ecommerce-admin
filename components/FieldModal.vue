@@ -7,7 +7,7 @@
   onMounted(() => {
     if (props.product) {
       fields.value.name = props.product.name;
-      fields.value.price = props.product.price.toString();
+      fields.value.price = props.product.price.toFixed(2);
       fields.value.stock = props.product.stock.toString();
       fields.value.image = props.product.image || '';
     }

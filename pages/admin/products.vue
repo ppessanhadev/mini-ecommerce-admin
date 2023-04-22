@@ -1,9 +1,12 @@
 <script setup lang="ts">
+  import { Product } from '~/types';
+
   useHead({ title: 'MiniEcommerce | Produtos' });
   const auth = ref(false);
-  // const { data: products } = useApi('/api/v1/product', {
-  //   server: auth.value,
-  // });
+
+  const { data: products, pending } = useApi<Product[]>('/api/v1/product', {
+    server: auth.value,
+  });
 
   onMounted(async () => {
     const token = localStorage.getItem('token');
@@ -17,12 +20,13 @@
 
 <template>
   <main v-if="auth" class="w-auto">
-    <section class="flex flex-col m-auto mt-20 w-screen lg:w-[960px] gap-4">
-      <button class="w-full sm:w-auto self-end text-white font-bold py-2 px-4 border-2 border-green-500 bg-green-400 hover:bg-green-500 transition-all">
-        Novo Produto
-      </button>
-      <ProductCard />
-      <ProductCard />
+    <section v-if="pending" class="flex w-full h-screen justify-center items-center">
+      <Loading class="h-16 w-16" />
+    </section>
+
+    <section v-else class="flex flex-col m-auto mt-20 w-screen lg:w-[960px] gap-4">
+      <CreateProduct />
+      <ProductCard v-for="product in products" :key="product.id" :product="product" />
     </section>
   </main>
 </template>

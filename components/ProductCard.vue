@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  import { Product } from '~/types';
+
+  defineProps<{ product: Product }>();
   const showModal = ref(false);
 
   function handleModal() {
@@ -14,13 +17,13 @@
 
     <div class="flex flex-col justify-center">
       <h2 class="text-2xl text-zinc-700 font-bold">
-        Product name
+        {{ product.name }}
       </h2>
       <h4 class="text-zinc-500">
-        <b>Valor:</b> {{ useCurrencyFormatter(79.90) }}
+        <b>Valor:</b> {{ useCurrencyFormatter(product.price) }}
       </h4>
       <h4 class="text-zinc-500">
-        <b>Estoque:</b> 25
+        <b>Estoque:</b> {{ product.stock }}
       </h4>
     </div>
 
@@ -34,5 +37,5 @@
     </div>
   </article>
 
-  <FieldModal v-if="showModal" :close="handleModal" />
+  <FieldModal v-if="showModal" :close="handleModal" :product="product" />
 </template>
