@@ -23,9 +23,9 @@ Com intuíto de deixar a parte de administração o mais simples possível, esse
 
 | Página                | Auth | Descrição                                                                                                                                                    |
 |-----------------------|:----:|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /admin                |  Não | Página voltada para login registrado no banco de dados assim,<br> garantindo segurança para adição, modificação ou remoção do produto.                        |
-| /admin/products       |  Sim | Página voltada para listagem de todos os produtos existentes, possuí registro<br>de token gerado pelo login, e apenas realiza as operações caso seja valido. |
-| /{qualquer_parametro} |  Não | Página "not found", caso tente acessar uma outra página que não existe, lhe dá<br>a opção de ser redirecionado para o login de administrador                 |
+| /admin                |  Não | Página voltada para login registrado no banco de dados assim, garantindo segurança para adição, modificação ou remoção do produto.                        |
+| /admin/products       |  Sim | Página voltada para listagem de todos os produtos existentes, possuí registro de token gerado pelo login, e apenas realiza as operações caso seja valido. |
+| /{qualquer_parametro} |  Não | Página "not found", caso tente acessar uma outra página que não existe, lhe dá a opção de ser redirecionado para o login de administrador                 |
 
 #### Como rodar o projeto
 
