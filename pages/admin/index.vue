@@ -30,9 +30,8 @@
 <template>
   <main class="w-full h-screen flex justify-center content-center">
     <form class="justify-center m-auto bg-white rounded-lg p-4 w-96 border shadow-md">
-      <p v-if="errorMessage" class="bg-red-500 text-white text-md text-center rounded p-3 border-2 border-red-600 mb-4">
-        {{ errorMessage }}
-      </p>
+      <WarningBox v-if="errorMessage" :error="errorMessage" />
+
       <Input id="user" v-model="fields.username" label="Usuário" type="text" placeholder="User" />
       <Input id="password" v-model="fields.password" label="Senha" type="password" placeholder="Password" class="my-6" />
 
