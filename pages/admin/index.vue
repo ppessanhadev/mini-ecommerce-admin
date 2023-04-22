@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { LoginFailedResponse, LoginSuccessResponse } from '~/types';
-  useHead({ title: 'MiniEcommerce | Login' });
+  useHead({ title: 'ME Admin | Login' });
 
   const fields = ref({ username: '', password: '' });
   const loading = ref(false);

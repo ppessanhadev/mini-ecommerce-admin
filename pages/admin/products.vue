@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { Product } from '~/types';
 
-  useHead({ title: 'MiniEcommerce | Produtos' });
+  useHead({ title: 'ME Admin | Produtos' });
   const auth = ref(false);
 
   const { data: products, pending } = useApi<Product[]>('/api/v1/product', {
