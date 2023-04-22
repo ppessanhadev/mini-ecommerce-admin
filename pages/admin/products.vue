@@ -4,7 +4,7 @@
   useHead({ title: 'ME Admin | Produtos' });
   const auth = ref(false);
 
-  const { data: products, pending } = useApi<Product[]>('/api/v1/product', {
+  const { data: products, pending, refresh } = useApi<Product[]>('/api/v1/product', {
     server: auth.value,
   });
 
@@ -33,8 +33,8 @@
     </section>
 
     <section v-else class="flex flex-col m-auto mt-20 w-screen lg:w-[960px] gap-4">
-      <CreateProduct />
-      <ProductCard v-for="product in products" :key="product.id" :product="product" />
+      <CreateProduct :invalidate="refresh" />
+      <ProductCard v-for="product in products" :key="product.id" :product="product" :invalidate="refresh" />
     </section>
   </main>
 </template>

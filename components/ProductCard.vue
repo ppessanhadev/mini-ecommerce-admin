@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { Product } from '~/types';
 
-  defineProps<{ product: Product }>();
+  defineProps<{ product: Product, invalidate: () => Promise<void> }>();
 
   const modals = ref({ edit: false, delete: false });
   const handleModal = (kind: 'edit' | 'delete') => {
@@ -43,6 +43,6 @@
     </div>
   </article>
 
-  <FieldModal v-if="modals.edit" :close="() => handleModal('edit')" :product="product" />
-  <DeleteModal v-if="modals.delete" :close="() => handleModal('delete')" :name="product.name" />
+  <FieldModal v-if="modals.edit" :close="() => handleModal('edit')" :invalidate="invalidate" :product="product" />
+  <DeleteModal v-if="modals.delete" :close="() => handleModal('delete')" :invalidate="invalidate" :name="product.name" />
 </template>
