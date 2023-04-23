@@ -4,7 +4,7 @@
 Essa aplicação tem como objetivo ser a parte visual de gerenciamento de um projeto voltado para ser um mini ecommerce.
 Aqui possuí tudo o que você precisa para criar, alterar ou deletar um novo produto da aplicação.
 
-A projeto de gerenciamento de produtos recebe um deploy na [Vercel](https://vercel.com) e pode ser acessado por ~~[esse link]()~~
+A projeto de gerenciamento de produtos recebe um deploy na [Vercel](https://vercel.com) e pode ser acessado por [esse link](mini-ecommerce-admin.vercel.app)
 
 ## Overview
 Durante o desenvolvimento, utilizei boa parte dos padrões e conceitos disponibilizados pela documentação do [Nuxt 3](https://nuxt.com/docs/guide/directory-structure/nuxt), ferramenta principal que utilizei para desenvolver esse projeto.
